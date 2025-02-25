@@ -1,0 +1,51 @@
+<!-- wp:group {"className":"home-main-wrap","style":{"spacing":{"margin":{"top":"0px","bottom":"0px"}}},"layout":{"type":"default"}} -->
+	<div class="wp-block-group home-main-wrap" style="margin-top:0px;margin-bottom:0px">
+	<!-- wp:columns {"className":"home-wrap","style":{"spacing":{"blockGap":{"top":"20px","left":"20px"}}}} -->
+		<div class="wp-block-columns home-wrap">
+			<!-- wp:column {"width":"20%","className":"home-sidebar"} -->
+				<div class="wp-block-column home-sidebar" style="flex-basis:20%">
+				<!-- wp:template-part {"slug":"homepage-sidebar","theme":"cinema-house","area":"uncategorized","className":"home-sidebar-outer"} /-->
+				</div>
+			<!-- /wp:column -->
+
+			<!-- wp:column {"width":"80%","className":"home-design"} -->
+				<div class="wp-block-column home-design" style="flex-basis:80%">
+				<!-- wp:group {"className":"home-design-inner","style":{"spacing":{"padding":{"top":"50px","bottom":"0px","right":"50px","left":"50px"}}},"layout":{"type":"default"}} -->
+					<div class="wp-block-group home-design-inner" style="padding-top:50px;padding-right:50px;padding-bottom:0px;padding-left:50px">
+
+						<!-- wp:template-part {"slug":"header","theme":"cinema-house","tagName":"header","className":"custom-home-header"} /-->
+
+						<!-- wp:pattern {"slug":"cinema-house/banner"} /-->
+
+						<!-- wp:group {"tagName":"main","className":"latest-movies","style":{"spacing":{"margin":{"top":"var:preset|spacing|70","bottom":"0"}}},"layout":{"type":"default"}} -->
+							<main class="wp-block-group latest-movies" style="margin-top:var(--wp--preset--spacing--70);margin-bottom:0">
+							<!-- wp:pattern {"slug":"cinema-house/latest-movies"} /-->
+							</main>
+						<!-- /wp:group -->
+
+						<!-- wp:pattern {"slug":"cinema-house/booking"} /-->
+					</div>
+				<!-- /wp:group -->
+				</div>
+			<!-- /wp:column -->
+		</div>
+	<!-- /wp:columns -->
+
+	<!-- wp:columns {"className":"home-wrap","style":{"spacing":{"blockGap":{"top":"20px","left":"20px"},"margin":{"top":"0","bottom":"0"}}}} -->
+		<div class="wp-block-columns home-wrap" id="footer-box" style="margin-top:0;margin-bottom:0"><!-- wp:column {"width":"20%","className":"home-sidebar footer-sidebar"} -->
+			<div class="wp-block-column home-sidebar footer-sidebar" style="flex-basis:20%"></div>
+		<!-- /wp:column -->
+
+		<!-- wp:column {"width":"80%","className":"home-design"} -->
+			<div class="wp-block-column home-design" style="flex-basis:80%">
+				<!-- wp:group {"className":"home-design-inner-2","style":{"spacing":{"padding":{"top":"0px","bottom":"50px","right":"50px","left":"50px"}}},"layout":{"type":"default"}} -->
+				<div class="wp-block-group home-design-inner-2" style="padding-top:0px;padding-right:50px;padding-bottom:50px;padding-left:50px">
+					<!-- wp:template-part {"slug":"footer","theme":"cinema-house","tagName":"footer","className":"home-footer-class"} /-->
+				</div>
+				<!-- /wp:group -->
+			</div>
+		<!-- /wp:column -->
+		</div>
+	<!-- /wp:columns -->
+	</div>
+<!-- /wp:group -->
