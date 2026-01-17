@@ -61,9 +61,7 @@ Once started, the WordPress application will be available at **`http://localhost
 /wordpress-cinema-docker
  ├── docker-compose.yml   # Docker container configuration
  ├── wp-content/          # WordPress themes and plugins folder
- ├── db_data/             # MySQL database storage
- ├── README.md            # Project documentation
- └── .gitignore           # Ignore unnecessary files in Git repository
+ └── README.md            # Project documentation
 ```
 
 ---
