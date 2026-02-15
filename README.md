@@ -171,4 +171,4 @@ This project is released under the **MIT License** – feel free to modify and u
 
 Created by: **[dawidolko](https://github.com/dawidolko)**
 
-<!-- password: b98J)W&FIG4fWp1nWs -->
+<!-- Password: b98J)W&FIG4fWp1nWs -->
