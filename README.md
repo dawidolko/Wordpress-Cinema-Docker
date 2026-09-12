@@ -1,174 +1,116 @@
-# WordPress Cinema – Advanced Movie Theater Website in Docker
+# WordPress Cinema
 
-## Project Overview
+> 🎟️ **A cinema in two containers** — WordPress and MySQL brought up by one command, with the theme and plugins versioned in the repository
 
-This project is a **movie theater web application** built using **WordPress** and containerized with **Docker**. It is designed as a learning project to explore **WordPress development**, **Docker containerization**, and **customizing CMS-based web applications**.
+**WordPress Cinema** is a cinema website built on WordPress and run in Docker. `docker compose up` starts WordPress on port 8080 and MySQL 8 beside it; `wp-content` is mounted from the repository, so the custom theme, the plugins and the uploads are version-controlled while the WordPress core stays where it belongs — inside the image.
 
-The website features:
+The site itself covers what a cinema needs: a film slider, the repertoire, showtimes, trailers, sections for schools and family screenings, accounts and a ticket booking form, with WooCommerce available for selling seats.
 
-- A **homepage** with a dynamic **movie slider** and a **"Check What's Playing"** section
-- A **cinema selection** based on city locations
-- A **movie schedule (repertoire)**
-- An **upcoming movies section**
-- A **navigation bar with various categories**
-- **User login and registration**
-- **Ticket reservations**
-
-This repository is intended as a **self-hosted, local development project** for learning purposes and will not be deployed on a live server.
+![WordPress](https://img.shields.io/badge/WordPress-latest-21759B?logo=wordpress&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-compose-2496ED?logo=docker&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white)
+![WooCommerce](https://img.shields.io/badge/WooCommerce-tickets-96588A?logo=woocommerce&logoColor=white)
+![Elementor](https://img.shields.io/badge/Elementor-page%20builder-92003B?logo=elementor&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## Technologies Used
+## 🎯 Key Features
 
-- **WordPress** – Content Management System (CMS)
-- **Docker** – Containerized development environment
-- **MySQL** – Database for storing movie schedules and user data
-- **Elementor** – Visual page builder for WordPress
-- **PHP** – Backend for WordPress functionality
-- **HTML/CSS** – Styling and custom theme adjustments
+- **One command from nothing to a running site** — `start.sh` (or `start.bat`) checks that Docker is installed and running, then brings both containers up. No local PHP, no local MySQL, no XAMPP.
+- **`wp-content` in git, core in the image** — the theme, the plugins and the uploads are tracked; WordPress itself is pulled from the official image, so an upgrade is a tag change rather than a merge.
+- **A custom theme** — `cinema-house` sits alongside Astra and the default themes, so the cinema layout is the project's own rather than a settings screen on somebody else's theme.
+- **Ticketing through WooCommerce** — WooCommerce with the Stripe checkout plugin, variation swatches and cart-abandonment recovery are part of the stack, so selling a seat is a configured path rather than a plan.
+- **Trailers with a proper player** — Presto Player, rather than a raw YouTube embed per page.
+- **Data survives restarts** — MySQL writes into a named volume, so `docker compose down` does not erase the site.
+- **MySQL reachable from the host** — the database is published on 3307, so a GUI client can open it without entering the container.
 
 ---
 
-## ⚙️ Installation & Setup
+## 🐳 The Stack
 
-### **Clone the Repository**
+| Service     | Image             | Port          | Role                                          |
+| ----------- | ----------------- | ------------- | --------------------------------------------- |
+| `wordpress` | `wordpress:latest`| 8080 → 80     | The site; `wp-content` mounted from the repo.  |
+| `db`        | `mysql:8.0`       | 3307 → 3306   | Database, persisted in the `db_data` volume.   |
+
+---
+
+## 🎨 What the Site Contains
+
+**Homepage** — a film slider, cinema selection, the repertoire with showtimes, upcoming releases and an information footer.
+
+**Navigation** — repertoire, trailers, family screenings, events and schools.
+
+**Accounts** — registration and sign-in, with roles, plus a booking form for reserving seats.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Docker and Docker Compose
+
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/dawidolko/wordpress-cinema-docker.git
-cd wordpress-cinema-docker
+git clone https://github.com/dawidolko/Wordpress-Cinema-Docker.git
+cd Wordpress-Cinema-Docker
 ```
 
-### **Run Docker Containers**
+### 2. Start it
 
 ```bash
-docker-compose up -d
+./start.sh          # macOS / Linux
+start.bat           # Windows
+
+# or directly
+docker compose up -d
 ```
 
-Once started, the WordPress application will be available at **`http://localhost:8080`**.
+### 3. Finish the WordPress installation
 
-### **Access WordPress Admin Panel**
+Open [http://localhost:8080](http://localhost:8080) and complete the installer once. The database credentials are already wired up by compose:
 
-- **Admin Dashboard:** `http://localhost:8080/wp-admin`
-- Default login credentials (change them after setup!):
-  - **Username:** `admin`
-  - **Password:** `admin`
+| Setting   | Value    |
+| --------- | -------- |
+| Database  | `wpdb`   |
+| User      | `user`   |
+| Password  | `password` |
+| Host      | `db:3306` |
+
+### 4. Activate the theme
+
+In **Appearance → Themes**, switch to **Cinema House**.
+
+### Stopping
+
+```bash
+docker compose down          # keeps the database
+docker compose down -v       # removes it too
+```
 
 ---
 
-## Project Structure
+## 📁 Project Structure
 
 ```
-/wordpress-cinema-docker
- ├── docker-compose.yml   # Docker container configuration
- ├── wp-content/          # WordPress themes and plugins folder
- └── README.md            # Project documentation
+Wordpress-Cinema-Docker/
+├── docker-compose.yml       # wordpress + mysql, volumes and ports
+├── start.sh / start.bat     # checks Docker, then brings the stack up
+└── wp-content/              # the only WordPress directory kept in git
+    ├── themes/
+    │   ├── cinema-house/    # the custom cinema theme
+    │   └── astra/ neve/ …   # fallbacks and defaults
+    ├── plugins/             # WooCommerce, Stripe checkout, Elementor,
+    │                        # Presto Player, variation swatches, cart recovery
+    ├── uploads/             # media
+    └── languages/
 ```
 
 ---
 
-## Features
+## 📄 License
 
-✅ **Homepage:** Movie slider, "Check What's Playing" section, schedule, and information footer  
-✅ **Navigation Menu:** Sections for repertoire, trailers, events, family, schools, etc.  
-✅ **User Authentication:** Registration and login system  
-✅ **Dynamic Movie Schedule:** Custom post types in WordPress for movies and showtimes  
-✅ **Ticket Booking System:** Basic reservation form for users
-
----
-
-## 🎨 Website Layout
-
-### **Homepage:**
-
-- 🎥 **Movie Slider** – Showcasing currently playing films
-- 🏙️ **Cinema Selection** – Users can choose their preferred location
-- 📅 **Repertoire Section** – List of available showtimes
-- 🎬 **Upcoming Movies Section** – Sneak peek at upcoming films
-- ℹ️ **Information Section** – About us, social media links, and footer
-
-### **Navigation Bar Sections:**
-
-- **Repertoire**
-- **Trailers**
-- **Family**
-- **Events**
-- **Schools**
-
-### **User Authentication:**
-
-- **Login & Registration System** (Customizable user roles)
-- **Optional WooCommerce Integration** for ticket purchases
-- **Basic Ticket Booking System**
-
----
-
-## 🔧 WordPress Customization
-
-### **Custom Post Types (CPT) for Movie Data**
-
-Movies and showtimes are managed using **Custom Post Types (CPT)** and **Advanced Custom Fields (ACF)**.  
-Each movie entry includes:
-
-- **Title & Description**
-- **Showtimes**
-- **Cinema Location**
-- **Trailer Embed**
-
-### **Dynamic Movie Schedule**
-
-A custom query retrieves movies based on the selected **cinema city** and **date**.
-
----
-
-## Development Roadmap
-
-### Phase 1: Environment Setup
-
-- Install Docker and configure WordPress
-- Choose and install a WordPress theme
-- Set up MySQL database for storing movies and users
-
-### Phase 2: Core Features
-
-- Implement **custom post types (CPTs) for movies and showtimes**
-- Develop a **custom page template for the movie schedule**
-- Add a **basic ticket reservation form**
-
-### Phase 3: Advanced Features
-
-- Implement **AJAX-based showtime filtering**
-- Add **REST API integration** for movie data
-- Enable **email notifications for reservations**
-
----
-
-## Running & Testing the Project
-
-- To restart the environment:
-  ```bash
-  docker-compose down && docker-compose up -d
-  ```
-- To check active containers:
-  ```bash
-  docker ps
-  ```
-- To view logs:
-  ```bash
-  docker logs container_id
-  ```
-
----
-
-## Contribution & Learning
-
-This project is a **learning experiment**, but contributions and improvements are welcome. If you're interested in **WordPress customization, Docker, or CMS-based application development**, feel free to explore and modify it.
-
----
-
-## License
-
-This project is released under the **MIT License** – feel free to modify and use it for learning purposes.
-
-Created by: **[dawidolko](https://github.com/dawidolko)**
-
-<!-- Password: b98J)W&FIG4fWp1nWs -->
+MIT © [Dawid Olko](https://dawidolko.pl)
