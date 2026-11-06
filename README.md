@@ -117,6 +117,12 @@ Wordpress-Cinema-Docker/
 
 ---
 
+## ♿ Accessibility
+
+An accessibility panel in the corner of every page changes text size, contrast, font and motion, and remembers the choice on the device. It sits on top of the markup and does not replace accessible markup.
+
+---
+
 ## 📄 License
 
 - The Docker setup (`docker-compose.yml`, `start.sh`, `start.bat`) is MIT © [Dawid Olko](https://dawidolko.pl).

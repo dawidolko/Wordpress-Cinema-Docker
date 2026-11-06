@@ -64,6 +64,15 @@ function cinema_house_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'cinema_house_scripts' );
 
+function cinema_house_a11y_panel() {
+	wp_print_script_tag( array(
+		'src'         => get_theme_file_uri( '/assets/a11y/a11y-panel.js' ),
+		'data-accent' => '#d90f45',
+		'defer'       => true,
+	) );
+}
+add_action( 'wp_head', 'cinema_house_a11y_panel' );
+
 // Get start function
 
 function cinema_house_enqueue_admin_script($hook) {
