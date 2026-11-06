@@ -1,3 +1,7 @@
+<p align="center">
+  <a href="https://github.com/dawidolko/Wordpress-Cinema-Docker"><img src="docs/readme/banner.webp" alt="WordPress Cinema: fullstack platform. A cinema in two containers" width="100%"></a>
+</p>
+
 # WordPress Cinema
 
 > 🎟️ **A cinema in two containers** — WordPress and MySQL brought up by one command, with the theme and plugins versioned in the repository
@@ -12,6 +16,8 @@ The site itself covers what a cinema needs: a film slider, the repertoire, showt
 ![WooCommerce](https://img.shields.io/badge/WooCommerce-tickets-96588A?logo=woocommerce&logoColor=white)
 ![Elementor](https://img.shields.io/badge/Elementor-page%20builder-92003B?logo=elementor&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
+
+[Getting started](#-getting-started)
 
 ---
 
@@ -114,3 +120,11 @@ Wordpress-Cinema-Docker/
 ## 📄 License
 
 MIT © [Dawid Olko](https://dawidolko.pl)
+
+---
+
+## 👨‍💻 Author
+
+**Dawid Olko** · Fullstack / AI Developer
+
+[Portfolio](https://olkodawid.dawidolko.pl) · [CV](https://cv.dawidolko.pl) · [LinkedIn](https://www.linkedin.com/in/dawidolko/) · [GitHub](https://github.com/dawidolko)
