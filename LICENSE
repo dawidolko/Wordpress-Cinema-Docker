@@ -1,3 +1,18 @@
+This repository has parts under different licences.
+
+1. Docker setup (docker-compose.yml, start.sh, start.bat): MIT licence, below.
+
+2. WordPress code (everything under wp-content/ except wp-content/uploads/):
+   the themes and plugins are third-party software under the GNU General Public
+   License, version 2 or later (GPL-2.0-or-later), and some themes declare a
+   later GPL version. They keep their own copyright notices and licence files.
+   See LICENSE-GPL-2.0.txt. The MIT licence does not apply to this code.
+
+3. Sample media in wp-content/uploads/: images from the theme vendors' starter
+   sites, under those vendors' terms. The MIT licence does not apply to them.
+
+--------------------------------------------------------------------------------
+
 MIT License
 
 Copyright (c) 2025 Dawid Olko

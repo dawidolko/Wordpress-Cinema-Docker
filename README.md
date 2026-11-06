@@ -15,7 +15,7 @@ The site itself covers what a cinema needs: a film slider, the repertoire, showt
 ![MySQL](https://img.shields.io/badge/MySQL-8.0-4479A1?logo=mysql&logoColor=white)
 ![WooCommerce](https://img.shields.io/badge/WooCommerce-tickets-96588A?logo=woocommerce&logoColor=white)
 ![Elementor](https://img.shields.io/badge/Elementor-page%20builder-92003B?logo=elementor&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green)
+![License](https://img.shields.io/badge/License-MIT%20%2F%20GPL--2.0--or--later-green)
 
 [Getting started](#-getting-started)
 
@@ -119,7 +119,9 @@ Wordpress-Cinema-Docker/
 
 ## 📄 License
 
-MIT © [Dawid Olko](https://dawidolko.pl)
+- The Docker setup (`docker-compose.yml`, `start.sh`, `start.bat`) is MIT © [Dawid Olko](https://dawidolko.pl).
+- The WordPress themes and plugins in `wp-content/` are third-party software under GPL-2.0-or-later, and some themes declare a later GPL version. They keep their own copyright notices, see [LICENSE-GPL-2.0.txt](LICENSE-GPL-2.0.txt).
+- Sample images in `wp-content/uploads/` come from the theme vendors' starter sites and stay under those vendors' terms.
 
 ---
 
